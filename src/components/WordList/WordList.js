@@ -1,17 +1,18 @@
-import React, { Component } from "react";
-import UserContext from "../../contexts/UserContext";
+import React, { Component } from 'react';
+import Word from '../Word/Word';
+import UserContext from '../../contexts/UserContext';
 
 class WordList extends Component {
   static contextType = UserContext;
 
   renderWords() {
-    return this.context.words.map((word) => <p>{word.original}</p>);
+    return this.context.words.map((word, i) => <Word key={i} word={word} />);
   }
 
   render() {
     return (
       <div className="worldlist-div">
-        {this.context.words === undefined ? (
+        {this.context.words.length === 0 ? (
           <div className="list">
             <p>No Words found for this language</p>
           </div>

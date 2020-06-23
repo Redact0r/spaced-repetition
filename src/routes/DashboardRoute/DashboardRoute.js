@@ -1,11 +1,16 @@
-import React, { Component } from "react";
-import UserContext from "../../contexts/UserContext";
-import UserService from "../../services/user-service";
-import WordList from "../../components/WordList/WordList";
-import "./Dashboard.css";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import UserContext from '../../contexts/UserContext';
+import UserService from '../../services/user-service';
+import WordList from '../../components/WordList/WordList';
+import Button from '../../components/Button/Button';
+import './Dashboard.css';
 
 class DashboardRoute extends Component {
   static contextType = UserContext;
+  state = {
+    width: `${this.context.score}%`,
+  };
   //gets my language and words progress from the server
   //shown my language
   //shown the words to learn for the language
@@ -25,10 +30,15 @@ class DashboardRoute extends Component {
   render() {
     return (
       <section className="dashboard-main">
-        {this.context.language}
+        <h2>{this.context.language}</h2>
+        <div className="progressbar">
+          {' '}
+          <div className="progressbar-container" style={this.state}></div>
+          <div className="progressbar-count">Total correct answers: 7</div>
+        </div>
+        <Link to="/learn">Start practicing</Link>
+        <h3>Words to practice</h3>
         <WordList />
-        {this.context.score}
-        <div className="progressbar">Progress Bar here</div>
       </section>
     );
   }

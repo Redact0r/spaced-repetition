@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import AuthApiService from "../services/auth-api-service";
-import TokenService from "../services/token-service";
-import IdleService from "../services/idle-service";
+import React, { Component } from 'react';
+import AuthApiService from '../services/auth-api-service';
+import TokenService from '../services/token-service';
+import IdleService from '../services/idle-service';
 
 const UserContext = React.createContext({
   user: {},
@@ -27,7 +27,15 @@ export default UserContext;
 export class UserProvider extends Component {
   constructor(props) {
     super(props);
-    const state = { user: {}, error: null };
+    const state = {
+      user: {},
+      error: null,
+      language: null,
+      correct: 0,
+      incorrect: 0,
+      score: 64,
+      words: [],
+    };
 
     const jwtPayload = TokenService.parseAuthToken();
 
