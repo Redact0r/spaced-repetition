@@ -17,18 +17,17 @@ class DashboardRoute extends Component {
 
   componentDidMount() {
     UserService.getUserData().then((data) => {
-      console.log(data);
       this.context.setLanguage(data.language.name);
       this.context.setWords(data.words);
     });
   }
 
   render() {
-    console.log(this.context.words);
     return (
       <section className="dashboard-main">
         {this.context.language}
         <WordList />
+        {this.context.score}
         <div className="progressbar">Progress Bar here</div>
       </section>
     );

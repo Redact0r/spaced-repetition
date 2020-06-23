@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import UserContext from '../../contexts/UserContext';
+import React, { Component } from "react";
+import UserContext from "../../contexts/UserContext";
 
 class WordList extends Component {
   static contextType = UserContext;
@@ -11,7 +11,7 @@ class WordList extends Component {
   render() {
     return (
       <div className="worldlist-div">
-        {this.context.words.length === 0 ? (
+        {this.context.words === undefined ? (
           <div className="list">
             <p>No Words found for this language</p>
           </div>
