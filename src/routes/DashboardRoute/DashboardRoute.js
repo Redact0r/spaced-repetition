@@ -1,13 +1,38 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import UserContext from "../../contexts/UserContext";
+import UserService from "../../services/user-service";
+import WordList from "../../components/WordList/WordList";
+import "./Dashboard.css";
 
 class DashboardRoute extends Component {
+  static contextType = UserContext;
+  //gets my language and words progress from the server
+  //shown my language
+  //shown the words to learn for the language
+  //shown my count for correct and incorrect responses for each word
+  //given a button/link to start learning
+  //shown the total score for guessing words correctly
+
+  //GET Language = API call and then stores language and words into context
+
+  componentDidMount() {
+    UserService.getUserData().then((data) => {
+      console.log(data);
+      this.context.setLanguage(data.language.name);
+      this.context.setWords(data.words);
+    });
+  }
+
   render() {
+    console.log(this.context.words);
     return (
-      <section>
-        implement and style me
+      <section className="dashboard-main">
+        {this.context.language}
+        <WordList />
+        <div className="progressbar">Progress Bar here</div>
       </section>
     );
   }
 }
 
-export default DashboardRoute
+export default DashboardRoute;
