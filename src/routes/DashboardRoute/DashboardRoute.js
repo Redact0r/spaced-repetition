@@ -36,7 +36,9 @@ class DashboardRoute extends Component {
           <div className="progressbar-container" style={this.state}></div>
           <div className="progressbar-count">Total correct answers: 7</div>
         </div>
-        <Link to="/learn">Start practicing</Link>
+        <Link className="btn" to="/learn">
+          Start practicing
+        </Link>
         <h3>Words to practice</h3>
         <WordList />
       </section>

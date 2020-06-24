@@ -11,7 +11,16 @@
   display: inline-block;
 }
 
+.Button:disabled {
+  pointer-events: none;
+  background-color: #757575;
+  border-bottom: 3px solid #444444;
+}
+
 .Button:hover {
-  color: black;
-  background-color: #faf600;
+  background-color: #1100ff;
+}
+
+.Button:active {
+  border: none;
 }

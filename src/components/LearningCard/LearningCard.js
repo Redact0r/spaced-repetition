@@ -6,11 +6,12 @@ class LearningCard extends Component {
   render() {
     const { word } = this.props;
     return (
-      <div>
-        <span>{word.nextWord}</span>
-        <p>Your total score is: {word.totalScore}</p>
+      <div className="learn-card">
+        <span className="word-container">{word.nextWord}</span>
         <main>
-          <LearningForm word={word} />
+          <div className="guess-form">
+            <LearningForm word={word} />
+          </div>
           <p>
             {' '}
             You have answered this word correctly {word.wordCorrectCount} times.
@@ -23,6 +24,9 @@ class LearningCard extends Component {
             times.
           </p>
         </main>
+        <div className="score-wrap">
+          <p>Your total score is: {word.totalScore}</p>
+        </div>
       </div>
     );
   }

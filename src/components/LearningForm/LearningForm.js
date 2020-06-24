@@ -22,7 +22,11 @@ class LearningForm extends Component {
           required
           onChange={(e) => this.setState({ guess: e.target.value })}
         ></Input>
-        <Button type="submit" onClick={(e) => this.handleSubmit(e)}>
+        <Button
+          type="submit"
+          onClick={(e) => this.handleSubmit(e)}
+          disabled={this.state.guess === ''}
+        >
           Submit your answer
         </Button>
       </form>

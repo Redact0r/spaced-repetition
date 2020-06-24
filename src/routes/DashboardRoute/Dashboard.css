@@ -1,19 +1,7 @@
 li {
   list-style: none;
 }
-.progressbar {
-  background-color: lightgrey;
-  position: relative;
-}
-.progressbar-container {
-  position: absolute;
-  height: 100%;
-  background-color: gold;
-  z-index: 1;
-}
-.progressbar-count {
-  z-index: 0;
-}
+
 .word {
   margin: 10px;
   padding: 10px;
@@ -25,4 +13,24 @@ li {
   border-radius: 25px;
   display: flex;
   justify-content: space-around;
+}
+
+.btn {
+  text-decoration: none;
+  background-color: #09008d;
+  color: #e2e2e2;
+  font-weight: 700;
+  margin: 10px;
+  padding: 12px 24px;
+  border-radius: 20px;
+  border: none;
+  border-bottom: 3px solid #0e004b;
+  display: inline-block;
+}
+.btn:hover {
+  background-color: #1100ff;
+}
+
+.btn:active {
+  border: none;
 }
