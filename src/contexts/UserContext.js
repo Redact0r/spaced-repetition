@@ -7,8 +7,6 @@ const UserContext = React.createContext({
   user: {},
   error: null,
   language: null,
-  correct: 0,
-  incorrect: 0,
   score: 100,
   words: [],
   setError: () => {},
@@ -18,8 +16,6 @@ const UserContext = React.createContext({
   processLogout: () => {},
   setLanguage: () => {},
   setWords: () => {},
-  setCorrect: () => {},
-  setInorrect: () => {},
 });
 
 export default UserContext;
@@ -31,8 +27,6 @@ export class UserProvider extends Component {
       user: {},
       error: null,
       language: null,
-      correct: 0,
-      incorrect: 0,
       score: 64,
       words: [],
     };
@@ -81,10 +75,6 @@ export class UserProvider extends Component {
 
   setWords = (words) => this.setState({ words });
 
-  setCorrect = (num) => this.setState({ correct: num });
-
-  setInorrect = (num) => this.setState({ incorrect: num });
-
   processLogin = (authToken) => {
     TokenService.saveAuthToken(authToken);
     const jwtPayload = TokenService.parseAuthToken();
@@ -131,8 +121,6 @@ export class UserProvider extends Component {
       user: this.state.user,
       error: this.state.error,
       language: this.state.language,
-      correct: this.state.correct,
-      incorrect: this.state.incorrect,
       words: this.state.words,
       score: this.state.score,
       setError: this.setError,
@@ -142,8 +130,6 @@ export class UserProvider extends Component {
       processLogout: this.processLogout,
       setLanguage: this.setLanguage,
       setWords: this.setWords,
-      setCorrect: this.setCorrect,
-      setInorrect: this.setInorrect,
     };
     return (
       <UserContext.Provider value={value}>

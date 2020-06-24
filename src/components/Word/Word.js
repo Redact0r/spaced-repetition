@@ -5,14 +5,14 @@ class Word extends Component {
   static contextType = UserContext;
   render() {
     const { word } = this.props;
-    //reset this.context.correct/incorrect to this.props.word
+    console.log(word);
     return (
       <div className="word">
         <ul>
           <li>
             <h4>{word.original}</h4>
-            <p>correct answer count: {this.context.correct}</p>
-            <p> incorrect answer count: {this.context.incorrect}</p>
+            <p>correct answer count: {word.correct_count}</p>
+            <p> incorrect answer count: {word.incorrect_count}</p>
           </li>
         </ul>
       </div>
