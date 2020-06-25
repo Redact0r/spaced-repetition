@@ -23,6 +23,7 @@ class DashboardRoute extends Component {
   componentDidMount() {
     UserService.getUserData().then((data) => {
       this.context.setLanguage(data.language.name);
+      this.context.setScore(data.language.total_score);
       this.context.setWords(data.words);
     });
   }
@@ -34,7 +35,9 @@ class DashboardRoute extends Component {
         <div className="progressbar">
           {' '}
           <div className="progressbar-container" style={this.state}></div>
-          <div className="progressbar-count">Total correct answers: 7</div>
+          <div className="progressbar-count">
+            Total correct answers: {this.context.score}
+          </div>
         </div>
         <Link className="btn" to="/learn">
           Start practicing

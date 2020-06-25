@@ -16,7 +16,6 @@ class LearningRoute extends Component {
   render() {
     return (
       <section>
-        <h2 className="learn-header">Translate the word:</h2>
         <LearningCard word={this.state.word} score={this.state.score} />
       </section>
     );

@@ -7,7 +7,9 @@ class LearningCard extends Component {
     const { word } = this.props;
     return (
       <div className="learn-card">
+        <h2 className="learn-header">Translate the word:</h2>
         <span className="word-container">{word.nextWord}</span>
+        <p>Your total score is: {word.totalScore}</p>
         <main>
           <div className="guess-form">
             <LearningForm word={word} />
@@ -24,9 +26,7 @@ class LearningCard extends Component {
             times.
           </p>
         </main>
-        <div className="score-wrap">
-          <p>Your total score is: {word.totalScore}</p>
-        </div>
+        <div className="score-wrap"></div>
       </div>
     );
   }

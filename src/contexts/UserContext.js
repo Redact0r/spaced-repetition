@@ -7,7 +7,7 @@ const UserContext = React.createContext({
   user: {},
   error: null,
   language: null,
-  score: 100,
+  score: 0,
   words: [],
   setError: () => {},
   clearError: () => {},
@@ -15,6 +15,7 @@ const UserContext = React.createContext({
   processLogin: () => {},
   processLogout: () => {},
   setLanguage: () => {},
+  setScore: () => {},
   setWords: () => {},
 });
 
@@ -27,7 +28,7 @@ export class UserProvider extends Component {
       user: {},
       error: null,
       language: null,
-      score: 64,
+      score: 0,
       words: [],
     };
 
@@ -72,6 +73,8 @@ export class UserProvider extends Component {
   };
 
   setLanguage = (language) => this.setState({ language });
+
+  setScore = (score) => this.setState({ score });
 
   setWords = (words) => this.setState({ words });
 
@@ -129,6 +132,7 @@ export class UserProvider extends Component {
       processLogin: this.processLogin,
       processLogout: this.processLogout,
       setLanguage: this.setLanguage,
+      setScore: this.setScore,
       setWords: this.setWords,
     };
     return (
