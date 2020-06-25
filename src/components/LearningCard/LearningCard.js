@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import LearningForm from '../../components/LearningForm/LearningForm';
-import LearningGuess from '../../components/LearningGuess/LearningGuess';
+import React, { Component } from "react";
+import LearningForm from "../../components/LearningForm/LearningForm";
+import LearningGuess from "../../components/LearningGuess/LearningGuess";
 
 class LearningCard extends Component {
   render() {
@@ -15,14 +15,14 @@ class LearningCard extends Component {
             <LearningForm word={word} />
           </div>
           <p>
-            {' '}
+            {" "}
             You have answered this word correctly {word.wordCorrectCount} times.
           </p>
           <p>
-            {' '}
+            {" "}
             You have answered this word incorrectly {
               word.wordIncorrectCount
-            }{' '}
+            }{" "}
             times.
           </p>
         </main>
