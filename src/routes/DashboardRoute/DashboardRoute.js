@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import UserContext from '../../contexts/UserContext';
 import UserService from '../../services/user-service';
 import WordList from '../../components/WordList/WordList';
-import Button from '../../components/Button/Button';
 import './Dashboard.css';
 
 class DashboardRoute extends Component {

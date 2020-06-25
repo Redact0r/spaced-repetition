@@ -1,6 +1,5 @@
-import config from "../config";
-import UserContext from "../contexts/UserContext";
-import TokenService from "./token-service";
+import config from '../config';
+import TokenService from './token-service';
 
 const UserService = {
   getUserData() {
@@ -19,9 +18,9 @@ const UserService = {
   },
   sendGuess(guess) {
     return fetch(`${config.API_ENDPOINT}/language/guess`, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "content-type": "application/json",
+        'content-type': 'application/json',
         Authorization: `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({ guess: guess }),

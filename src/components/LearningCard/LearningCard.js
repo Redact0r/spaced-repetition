@@ -1,32 +1,32 @@
-import React, { Component } from "react";
-import LearningForm from "../../components/LearningForm/LearningForm";
-import LearningGuess from "../../components/LearningGuess/LearningGuess";
+import React, { Component } from 'react';
+import LearningForm from '../../components/LearningForm/LearningForm';
 
 class LearningCard extends Component {
   render() {
-    const { word } = this.props;
+    const { word, prompt } = this.props;
     return (
       <div className="learn-card">
         <h2 className="learn-header">Translate the word:</h2>
         <span className="word-container">{word.nextWord}</span>
-        <p>Your total score is: {word.totalScore}</p>
         <main>
           <div className="guess-form">
-            <LearningForm word={word} />
+            <LearningForm word={word} prompt={prompt} />
+          </div>
+          <div className="DisplayScore">
+            <p>Your total score is: {word.totalScore}</p>
           </div>
           <p>
-            {" "}
+            {' '}
             You have answered this word correctly {word.wordCorrectCount} times.
           </p>
           <p>
-            {" "}
+            {' '}
             You have answered this word incorrectly {
               word.wordIncorrectCount
-            }{" "}
+            }{' '}
             times.
           </p>
         </main>
-        <div className="score-wrap"></div>
       </div>
     );
   }

@@ -1,38 +1,28 @@
-import React, { Component } from "react";
-import { Label, Input } from "../Form/Form";
-import Button from "../Button/Button";
-import Word from "../Word/Word";
-import UserService from "../../services/user-service";
+import React, { Component } from 'react';
+import { Label, Input } from '../Form/Form';
+import Button from '../Button/Button';
+import UserService from '../../services/user-service';
+import UserContext from '../../contexts/UserContext';
 
 class LearningForm extends Component {
+  static contextType = UserContext;
+
   state = {
-    guess: "",
-    correct: "",
-    incorrect: "",
-    check: 0,
+    guess: '',
   };
 
-  // guessCheck = () => {
-  //   guess.toLowercase();
-  //   if (guess === word.translation) {
-  //     check++;
-  //     correct++;
-  //   } else {
-  //     incorrect++;
-  //     check - 1;
-  //   }
-  // };
   handleSubmit = (e) => {
     e.preventDefault();
     let guess = this.state.guess.toLowerCase();
-    UserService.sendGuess(guess).then((data) => console.log(data));
+    UserService.sendGuess(guess).then((data) => this.context.setNextWord(data));
+    this.props.prompt();
   };
 
   firstInput = React.createRef();
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={(e) => this.handleSubmit(e)}>
           <Label htmlFor="learn-guess-input">
             What's the translation for this word?
           </Label>
@@ -42,15 +32,10 @@ class LearningForm extends Component {
             required
             onChange={(e) => this.setState({ guess: e.target.value })}
           ></Input>
-          <Button
-            type="submit"
-            onClick={(e) => this.handleSubmit(e)}
-            disabled={this.state.guess === ""}
-          >
+          <Button type="submit" disabled={this.state.guess === ''}>
             Submit your answer
           </Button>
         </form>
-        {/* {this.state.check > 0 ? <Correct /> : <Incorrect />} */}
       </div>
     );
   }

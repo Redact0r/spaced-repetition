@@ -22,5 +22,5 @@
 }
 
 .Button:active {
-  border: none;
+  border-bottom: 3px solid #1100ff;
 }
