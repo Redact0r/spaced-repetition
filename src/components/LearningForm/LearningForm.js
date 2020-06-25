@@ -7,15 +7,11 @@ import UserContext from '../../contexts/UserContext';
 class LearningForm extends Component {
   static contextType = UserContext;
 
-  state = {
-    guess: '',
-  };
-
   handleSubmit = (e) => {
     e.preventDefault();
-    let guess = this.state.guess.toLowerCase();
+    let guess = this.props.guess.toLowerCase();
     UserService.sendGuess(guess).then((data) => this.context.setNextWord(data));
-    this.props.prompt();
+    this.props.setPrompt();
   };
 
   firstInput = React.createRef();
@@ -30,9 +26,9 @@ class LearningForm extends Component {
             ref={this.firstInput}
             id="learn-guess-input"
             required
-            onChange={(e) => this.setState({ guess: e.target.value })}
+            onChange={(e) => this.props.setGuess(e)}
           ></Input>
-          <Button type="submit" disabled={this.state.guess === ''}>
+          <Button type="submit" disabled={this.props.guess === ''}>
             Submit your answer
           </Button>
         </form>

@@ -9,6 +9,7 @@ class LearningRoute extends Component {
     word: {},
     err: '',
     prompt: null,
+    guess: '',
   };
   componentDidMount() {
     UserService.getWordCard()
@@ -18,20 +19,41 @@ class LearningRoute extends Component {
   setPrompt = () => {
     this.setState({ prompt: true });
   };
+  setGuess = (e) => {
+    this.setState({ guess: e.target.value });
+  };
+  clearPrompt = () => {
+    this.setState({ prompt: null });
+  };
+  clearGuess = () => {
+    this.setState({ guess: '' });
+  };
   renderPrompt = () => {
     if (this.state.prompt === true) {
-      return <Prompt />;
+      return (
+        <Prompt
+          word={this.state.word}
+          guess={this.state.guess}
+          clearGuess={this.clearGuess}
+          clearPrompt={this.clearPrompt}
+        />
+      );
     }
   };
   render() {
     return (
       <section>
-        <LearningCard
-          word={this.state.word}
-          score={this.state.score}
-          prompt={this.setPrompt()}
-        />
-        {this.renderPrompt()}
+        {this.state.prompt === true ? (
+          this.renderPrompt()
+        ) : (
+          <LearningCard
+            word={this.state.word}
+            score={this.state.score}
+            guess={this.state.guess}
+            setPrompt={this.setPrompt}
+            setGuess={this.setGuess}
+          />
+        )}
       </section>
     );
   }

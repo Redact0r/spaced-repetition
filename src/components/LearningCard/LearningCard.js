@@ -3,14 +3,19 @@ import LearningForm from '../../components/LearningForm/LearningForm';
 
 class LearningCard extends Component {
   render() {
-    const { word, prompt } = this.props;
+    const { word, setPrompt, guess, setGuess } = this.props;
     return (
       <div className="learn-card">
         <h2 className="learn-header">Translate the word:</h2>
         <span className="word-container">{word.nextWord}</span>
         <main>
           <div className="guess-form">
-            <LearningForm word={word} prompt={prompt} />
+            <LearningForm
+              word={word}
+              setPrompt={setPrompt}
+              guess={guess}
+              setGuess={setGuess}
+            />
           </div>
           <div className="DisplayScore">
             <p>Your total score is: {word.totalScore}</p>
