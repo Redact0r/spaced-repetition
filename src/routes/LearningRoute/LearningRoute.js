@@ -1,15 +1,16 @@
-import React, { Component } from "react";
-import LearningCard from "../../components/LearningCard/LearningCard";
-import UserService from "../../services/user-service";
-import Prompt from "../../components/Prompt/Prompt";
-import "./LearningRoute.css";
+import React, { Component } from 'react';
+import LearningCard from '../../components/LearningCard/LearningCard';
+import UserService from '../../services/user-service';
+import Prompt from '../../components/Prompt/Prompt';
+import './LearningRoute.css';
+
 class LearningRoute extends Component {
   state = {
     //Sample --- Replace with actual api information
     word: {},
-    err: "",
+    err: '',
     prompt: null,
-    guess: "",
+    guess: '',
   };
   componentDidMount() {
     UserService.getWordCard()
@@ -27,7 +28,7 @@ class LearningRoute extends Component {
     this.setState({ prompt: null });
   };
   clearGuess = () => {
-    this.setState({ guess: "" });
+    this.setState({ guess: '' });
   };
 
   setNewWord = (word) => {

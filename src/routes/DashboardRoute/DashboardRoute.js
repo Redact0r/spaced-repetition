@@ -30,18 +30,14 @@ class DashboardRoute extends Component {
   render() {
     return (
       <section className="dashboard-main">
-        <h2>{this.context.language}</h2>
-        <div className="progressbar">
-          {' '}
-          <div className="progressbar-container" style={this.state}></div>
-          <div className="progressbar-count">
-            Total correct answers: {this.context.score}
-          </div>
+        <div className="dashboard-header">
+          <h2>{this.context.language}</h2>
+          <p>Total correct answers: {this.context.score}</p>
+          <Link className="btn" to="/learn">
+            Start practicing
+          </Link>
+          <h3>Words to practice</h3>
         </div>
-        <Link className="btn" to="/learn">
-          Start practicing
-        </Link>
-        <h3>Words to practice</h3>
         <WordList />
       </section>
     );

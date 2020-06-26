@@ -1,24 +1,36 @@
 li {
   list-style: none;
 }
-
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.dashboard-header {
+  color: #e2e2e2;
+  text-shadow: 1px 1px 1px black;
+}
 .word {
   margin: 10px;
   padding: 10px;
+  width: 275px;
   background-color: #e2e2e2;
-  color: #333;
+  color: rgb(34, 34, 34);
   border-bottom: 3px solid #999;
   box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.25);
   font-weight: bold;
   border-radius: 25px;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .btn {
   text-decoration: none;
-  background-color: #09008d;
-  color: #e2e2e2;
+  background-color: #faf600;
+  color: rgb(34, 34, 34);
+  text-shadow: none;
   font-weight: 700;
   margin: 10px;
   padding: 12px 24px;
@@ -28,9 +40,9 @@ li {
   display: inline-block;
 }
 .btn:hover {
-  background-color: #1100ff;
+  background-color: #f6f46d;
 }
 
 .btn:active {
-  border-bottom: 3px solid #1100ff;
+  border-bottom: 3px solid #f6f46d;
 }

@@ -17,20 +17,22 @@ class LearningCard extends Component {
               setGuess={setGuess}
             />
           </div>
-          <div className="DisplayScore">
+          <div className="DisplayScore-card">
             <p>Your total score is: {word.totalScore}</p>
+
+            <p>
+              {' '}
+              You have answered this word correctly {word.wordCorrectCount}{' '}
+              times.
+            </p>
+            <p>
+              {' '}
+              You have answered this word incorrectly {
+                word.wordIncorrectCount
+              }{' '}
+              times.
+            </p>
           </div>
-          <p>
-            {' '}
-            You have answered this word correctly {word.wordCorrectCount} times.
-          </p>
-          <p>
-            {' '}
-            You have answered this word incorrectly {
-              word.wordIncorrectCount
-            }{' '}
-            times.
-          </p>
         </main>
       </div>
     );
