@@ -1,5 +1,11 @@
 # Spaced Repetition Capstone
 
+### Live link: https://spaced-repetition-nu.vercel.app/
+### Client repo: https://github.com/Redact0r/spaced-repetition
+### Server repo: https://github.com/Redact0r/spaced-repetition-api
+### Developed by Ren Finn and Tyler Sharp
+
+
 ## Setup
 
 To setup the application
