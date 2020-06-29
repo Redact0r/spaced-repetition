@@ -9,14 +9,12 @@ class LearningCard extends Component {
         <h2 className="learn-header">Translate the word:</h2>
         <span className="word-container">{word.nextWord}</span>
         <main>
-          <div className="guess-form">
-            <LearningForm
-              word={word}
-              setPrompt={setPrompt}
-              guess={guess}
-              setGuess={setGuess}
-            />
-          </div>
+          <LearningForm
+            word={word}
+            setPrompt={setPrompt}
+            guess={guess}
+            setGuess={setGuess}
+          />
           <div className="DisplayScore-card">
             <p>Your total score is: {word.totalScore}</p>
 

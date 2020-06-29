@@ -18,7 +18,7 @@ class LearningForm extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={(e) => this.handleSubmit(e)}>
+        <form onSubmit={(e) => this.handleSubmit(e)} className="guess-form">
           <Label htmlFor="learn-guess-input">
             What's the translation for this word?
           </Label>

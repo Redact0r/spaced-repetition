@@ -1,9 +1,8 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Input, Required, Label } from "../Form/Form";
-import AuthApiService from "../../services/auth-api-service";
-import Button from "../Button/Button";
-import "./RegistrationForm.css";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { Input, Required, Label } from '../Form/Form';
+import AuthApiService from '../../services/auth-api-service';
+import Button from '../Button/Button';
 
 class RegistrationForm extends Component {
   static defaultProps = {
@@ -23,9 +22,9 @@ class RegistrationForm extends Component {
       password: password.value,
     })
       .then((user) => {
-        name.value = "";
-        username.value = "";
-        password.value = "";
+        name.value = '';
+        username.value = '';
+        password.value = '';
         this.props.onRegistrationSuccess();
       })
       .catch((res) => {
@@ -78,7 +77,7 @@ class RegistrationForm extends Component {
         <footer>
           <Button className="signin" type="submit">
             Sign up
-          </Button>{" "}
+          </Button>{' '}
           <Link to="/login">Already have an account?</Link>
         </footer>
       </form>
